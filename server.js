@@ -64,10 +64,6 @@ if(foundSauce){
     res.render('newSauceForm', {sauceAlert})
 }
 })
-
-
-
-
 //serving is now listening to PORT
 app.listen(PORT, () => {
     console.log(`Your server is now listening to port ${PORT}`)
