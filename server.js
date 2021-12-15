@@ -43,7 +43,30 @@ app.get('/sauces/:id', async (req, res) => {
     res.render('sauce', {sauce}); //sauce hb view
 })
 
-//New Routes go here: 
+//New Routes go here:
+app.get ('/new-sauce-form', async (req, res) => {
+    res.render('newSauceForm')
+}) 
+
+app.post('/new-sauce', async (req, res) => {    
+const newSauce = await Sauce.create(req.body)
+// console.log(newSauce)
+let sauceAlert = `${newSauce.name} added to your database`
+const foundSauce = await Sauce.findByPk(newSauce.id)
+if(foundSauce){
+//     res.status(201).send(`${newSauce.name} added to database`)
+// }else{
+//     console.log("No sauce created")
+// }
+    res.render('newSauceForm', {sauceAlert})
+} else {
+    sauceAlert = 'Failed to add Sauce'
+    res.render('newSauceForm' {sauceAlert})
+
+}
+})
+
+
 
 
 //serving is now listening to PORT
