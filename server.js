@@ -61,8 +61,7 @@ if(foundSauce){
     res.render('newSauceForm', {sauceAlert})
 } else {
     sauceAlert = 'Failed to add Sauce'
-    res.render('newSauceForm' {sauceAlert})
-
+    res.render('newSauceForm', {sauceAlert})
 }
 })
 
